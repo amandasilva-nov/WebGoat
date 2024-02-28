@@ -19,7 +19,7 @@ variables:
 
 steps:
 
-- template: CxAllInOne.yaml@templates
+- template: CxSASTScan.yaml@templates
 
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
