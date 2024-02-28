@@ -13,13 +13,13 @@ resources:
 
 variables:
  # Checkmarx variables
-  cxTeam: "/CxServer/"
+  cxTeam: "/CxServer/SI"
   cxFolders: "*tests*" #Folders to exclude from analysis
-  cxProjectName: $(Build.Repository.Name)
+  cxProjectName: teste-webgoat-java
 
 steps:
 
-- template: CxSASTScan.yaml@templates
+- template: CxAllInOne.yaml@templates
 
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
