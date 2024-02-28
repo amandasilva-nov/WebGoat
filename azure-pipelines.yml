@@ -1,0 +1,30 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: DevSecOps/checkmarx-templates
+      ref: main
+
+variables:
+ # Checkmarx variables
+  cxTeam: "/CxServer/"
+  cxFolders: "*tests*" #Folders to exclude from analysis
+  cxProjectName: $(Build.Repository.Name)
+
+steps:
+
+- template: CxSASTScan.yaml@templates
+
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
